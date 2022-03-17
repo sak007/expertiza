@@ -149,6 +149,7 @@ class Assessment360Controller < ApplicationController
                                overall_review_grade_hash,
                                overall_review_count_hash,
                                review_info_per_stu)
+
     # If a student has not taken an assignment or if they have not received any grade for the same,
     # assign it as 0 instead of leaving it blank. This helps in easier calculation of overall grade
     overall_review_grade_hash[assignment.id] = 0 unless overall_review_grade_hash.key?(assignment.id)
@@ -180,11 +181,11 @@ class Assessment360Controller < ApplicationController
   end
 
   def format_topic(topic)
-    topic.nil? ? '-' : topic.format_for_display
+    topic.nil? ? '—' : topic.format_for_display
   end
 
   def format_score(score)
-    score.nil? ? '-' : score
+    score.nil? ? '—' : score
   end
 
   helper_method :format_score
